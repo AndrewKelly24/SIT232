@@ -4,9 +4,12 @@ using System;
 public class Account
 {
     private decimal _balance;
-
     private string _name;
-
+    //Give _name a read only propertyrea,+d
+    public string Name
+    {
+        get { return _name; }
+    }
     //Method used to initilise an account object
     public Account(string name, decimal startingBalance)
     {
@@ -35,18 +38,9 @@ public class Account
         }
         return false;
     }
-
-    public string Name
-    {
-        get { return _name; }
-    }
-
-    //Print account details
     public void PrintAccount()
     {
-
         Console.WriteLine("Account Name: " + _name);
         Console.WriteLine("Account Balance: $" + _balance);
-
     }
 }

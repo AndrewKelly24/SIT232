@@ -1,6 +1,6 @@
 using System;
 
-public class DepositTransaction
+public class WithdrawTransaction
 {
     private Account _account;
     private decimal _amount;
@@ -21,8 +21,8 @@ public class DepositTransaction
     {
         get { return _reversed; }
     }
-    
-    public DepositTransaction(Account account, decimal amount)
+
+    public WithdrawTransaction(Account account, decimal amount)
     {
         _account = account;
         _amount = amount;
@@ -31,8 +31,8 @@ public class DepositTransaction
     {
         if (_success)
         {
-            Console.WriteLine("Deposit Successful");
-            Console.WriteLine("Amount deposited: $" + Convert.ToString(_amount));
+            Console.WriteLine("Withdrawn Successful");
+            Console.WriteLine("Amount withdrawn: $" + Convert.ToString(_amount));
         }
         if (_reversed)
         {
@@ -47,7 +47,7 @@ public class DepositTransaction
             throw new Exception("Cannot excute this transaction");
         }
         _executed = true;
-        _success = _account.Deposit(_amount);
+        _success = _account.Withdraw(_amount);
     }
     public void Rollback()
     {
